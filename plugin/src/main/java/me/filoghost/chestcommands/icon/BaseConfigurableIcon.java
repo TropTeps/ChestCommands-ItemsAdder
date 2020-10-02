@@ -164,7 +164,7 @@ public abstract class BaseConfigurableIcon implements Icon {
         addEnchantment(enchantment, 1);
     }
 
-    public void addEnchantment(Enchantment enchantment, Integer level) {
+    public void addEnchantment(Enchantment enchantment, int level) {
         if (enchantments == null) {
             enchantments = new HashMap<>();
         }

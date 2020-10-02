@@ -6,15 +6,39 @@
 package me.filoghost.chestcommands.api;
 
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+/**
+ * A simplified {@link Icon} with a settable click handler.
+ *
+ * @see ConfigurableIcon
+ * @see StaticIcon
+ * @since 1
+ */
 public interface ClickableIcon extends Icon {
 
-    void setClickHandler(ClickHandler clickHandler);
+    /**
+     * Sets the click handler for this icon (null to remove it).
+     *
+     * @since 1
+     */
+    void setClickHandler(@Nullable ClickHandler clickHandler);
 
-    ClickHandler getClickHandler();
+    /**
+     * Returns the current click handler (null if not present).
+     *
+     * @since 1
+     */
+    @Nullable ClickHandler getClickHandler();
 
+    /**
+     * Delegates the click event to the current click handler. This method should not be overridden.
+     *
+     * @since 1
+     */
     @Override
-    default ClickResult onClick(MenuView menuView, Player clicker) {
+    default @NotNull ClickResult onClick(@NotNull MenuView menuView, @NotNull Player clicker) {
         if (getClickHandler() != null) {
             return getClickHandler().onClick(menuView, clicker);
         } else {
