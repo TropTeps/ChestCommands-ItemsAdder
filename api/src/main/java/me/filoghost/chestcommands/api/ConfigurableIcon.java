@@ -39,6 +39,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Sets the material of the displayed item.
      *
+     * @param material the new material
      * @see ItemStack#setType(Material)
      * @since 1
      */
@@ -47,6 +48,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the material of the displayed item.
      *
+     * @return the current material
      * @see ItemStack#getType()
      * @since 1
      */
@@ -55,6 +57,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Sets the amount of the displayed item.
      *
+     * @param amount the new amount
      * @see ItemStack#setAmount(int)
      * @since 1
      */
@@ -63,6 +66,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the amount of the displayed item.
      *
+     * @return the current amount
      * @see ItemStack#getAmount()
      * @since 1
      */
@@ -71,6 +75,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Sets the durability of the displayed item.
      *
+     * @param durability the new durability
      * @see ItemStack#setDurability(short)
      * @since 1
      */
@@ -79,6 +84,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the durability of the displayed item.
      *
+     * @return the current durability
      * @see ItemStack#getDurability()
      * @since 1
      */
@@ -89,7 +95,7 @@ public interface ConfigurableIcon extends ClickableIcon {
      * and override NBT values (for example, {@link ConfigurableIcon#setName(String)} overrides the name inside NBT
      * data).
      *
-     * @param nbtData the NBT data as JSON string, or null to remove
+     * @param nbtData the new NBT data as JSON string, null to remove
      * @throws IllegalArgumentException if the NBT data JSON is not valid
      * @since 1
      */
@@ -98,7 +104,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the NBT data of the displayed item.
      *
-     * @return the NBT data as JSON string, or null if not present
+     * @return the current NBT data as JSON string, null if absent
      * @see ConfigurableIcon#setNBTData(String)
      * @since 1
      */
@@ -107,7 +113,7 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Sets the name, which is the first line in the tooltip of the displayed item. Can contain colors.
      *
-     * @param name the name, or null to remove
+     * @param name the new name, null to remove
      * @since 1
      */
     void setName(@Nullable String name);
@@ -115,23 +121,25 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the name.
      *
-     * @return the name, or null if not present
+     * @return the current name, null if absent
      * @see ConfigurableIcon#setName(String)
      * @since 1
      */
     @Nullable String getName();
 
     /**
-     * @param lore the lore as array of lines, or null to remove
+     * Sets the lore.
+     *
+     * @param lore the new lore as array of lines, null to remove
      * @see ConfigurableIcon#setLore(List)
      * @since 1
      */
     void setLore(@Nullable String... lore);
 
     /**
-     * Sets the lore, which is displayed below the name when hovering the icon.
+     * Sets the lore, which is displayed below the name in the tooltip of the displayed item. Can contain colors.
      *
-     * @param lore the lore as list of lines, or null to remove
+     * @param lore the new lore as list of lines, null to remove
      * @since 1
      */
     void setLore(@Nullable List<String> lore);
@@ -139,16 +147,16 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the lore.
      *
-     * @return the lore, or null if not present
+     * @return the current lore, null if absent
      * @see ConfigurableIcon#setLore(List)
      * @since 1
      */
     @Nullable List<String> getLore();
 
     /**
-     * Sets the enchantments of the displayed item.
+     * Sets the enchantments of the displayed item, removing existing ones.
      *
-     * @param enchantments the enchantments map
+     * @param enchantments the new enchantments, as map of enchantment and level, null to remove all enchantments
      * @since 1
      */
     void setEnchantments(@Nullable Map<Enchantment, Integer> enchantments);
@@ -156,6 +164,8 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the enchantments of the displayed item.
      *
+     * @return the current enchantments, as map of enchantment and level, null if absent
+     * @see ConfigurableIcon#setEnchantments(Map)
      * @since 1
      */
     @Nullable Map<Enchantment, Integer> getEnchantments();
@@ -163,40 +173,43 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Adds a level 1 enchantment to the displayed item.
      *
-     * @param enchantment the enchantment
+     * @param enchantment the enchantment to add
      * @since 1
      */
     void addEnchantment(@NotNull Enchantment enchantment);
 
     /**
-     * Add enchantment.
+     * Adds an enchantment to the displayed item.
      *
-     * @param enchantment the enchantment
-     * @param level       the level
+     * @param enchantment the enchantment to add
+     * @param level       the level of the enchantment
      * @since 1
      */
     void addEnchantment(@NotNull Enchantment enchantment, int level);
 
     /**
-     * Remove enchantment.
+     * Removes an enchantment from the displayed item.
      *
-     * @param enchantment the enchantment
+     * @param enchantment the enchantment to remove
      * @since 1
      */
-    void removeEnchantment(Enchantment enchantment);
+    void removeEnchantment(@NotNull Enchantment enchantment);
 
     /**
-     * Returns the leather color.
+     * Returns the leather color of the displayed item.
      *
-     * @return the leather color
+     * @return the current leather color, null if absent
+     * @see ConfigurableIcon#setLeatherColor(Color)
      * @since 1
      */
     @Nullable Color getLeatherColor();
 
     /**
-     * Sets the leather color.
+     * Sets the leather color of the displayed leather armor.
+     * <p>
+     * This value is ignored if the material is not a leather armor piece.
      *
-     * @param leatherColor the leather color
+     * @param leatherColor the new leather color, null to remove
      * @since 1
      */
     void setLeatherColor(@Nullable Color leatherColor);
@@ -204,15 +217,18 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the skull owner.
      *
-     * @return the skull owner
+     * @return the current skull owner, null if absent
+     * @see ConfigurableIcon#setSkullOwner(String)
      * @since 1
      */
     @Nullable String getSkullOwner();
 
     /**
-     * Sets the skull owner.
+     * Sets the skull owner of the displayed player head.
+     * <p>
+     * This value is ignored if the material is not a player head.
      *
-     * @param skullOwner the skull owner
+     * @param skullOwner the new skull owner, null to remove
      * @since 1
      */
     void setSkullOwner(@Nullable String skullOwner);
@@ -220,31 +236,37 @@ public interface ConfigurableIcon extends ClickableIcon {
     /**
      * Returns the banner color.
      *
-     * @return the banner color
+     * @return the current banner color, null if absent
+     * @see ConfigurableIcon#setBannerColor(DyeColor)
      * @since 1
      */
     @Nullable DyeColor getBannerColor();
 
     /**
-     * Sets the banner color.
+     * Sets the color of the displayed banner.
+     * <p>
+     * This value is ignored if the material is not a banner.
      *
-     * @param bannerColor the banner color
+     * @param bannerColor the new banner color, null to remove
      * @since 1
      */
     void setBannerColor(@Nullable DyeColor bannerColor);
 
     /**
-     * Returns the banner patterns.
+     * Returns the patterns of the displayed banner.
      *
-     * @return the banner patterns
+     * @return the current banner patterns, null if absent
+     * @see ConfigurableIcon#setBannerPatterns(List)
      * @since 1
      */
     @Nullable List<Pattern> getBannerPatterns();
 
     /**
-     * Sets the banner patterns.
+     * Sets the patterns of the displayed banner.
+     * <p>
+     * This value is ignored if the material is not a banner.
      *
-     * @param bannerPatterns the banner patterns
+     * @param bannerPatterns the new banner patterns, null to remove
      * @since 1
      */
     void setBannerPatterns(@Nullable List<Pattern> bannerPatterns);

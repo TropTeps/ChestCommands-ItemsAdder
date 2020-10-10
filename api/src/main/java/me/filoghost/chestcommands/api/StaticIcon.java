@@ -30,6 +30,7 @@ public interface StaticIcon extends ClickableIcon {
     /**
      * Returns the displayed item stack.
      *
+     * @return the current displayed item stack
      * @since 1
      */
     @NotNull ItemStack getItemStack();
@@ -37,6 +38,7 @@ public interface StaticIcon extends ClickableIcon {
     /**
      * Sets the item stack to display.
      *
+     * @param itemStack the new displayed item stack
      * @since 1
      */
     void setItemStack(@NotNull ItemStack itemStack);

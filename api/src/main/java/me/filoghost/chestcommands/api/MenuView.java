@@ -34,15 +34,17 @@ public interface MenuView {
     void refresh();
 
     /**
-     * Returns the player linked with this view.
+     * Returns the player linked to this view.
      *
+     * @return the player
      * @since 1
      */
     @NotNull Player getViewer();
 
     /**
-     * Returns the menu from which this view was rendered.
+     * Returns the menu that generated this view.
      *
+     * @return the menu
      * @since 1
      */
     @NotNull Menu getMenu();

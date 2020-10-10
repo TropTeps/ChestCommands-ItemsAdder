@@ -71,6 +71,7 @@ public class ChestCommandsAPI {
      * folder.
      *
      * @param menuFileName the file name of the menu to check
+     * @return true if the menu exists, false otherwise
      * @since 1
      */
     public static boolean pluginMenuExists(@NotNull String menuFileName) {

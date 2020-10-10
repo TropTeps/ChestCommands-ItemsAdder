@@ -49,6 +49,7 @@ public interface Menu {
      *
      * @param row    the row position
      * @param column the column position
+     * @return the icon, null if absent
      * @since 1
      */
     @Nullable Icon getIcon(int row, int column);
@@ -56,6 +57,7 @@ public interface Menu {
     /**
      * Returns the title of the displayed inventory.
      *
+     * @return the title
      * @since 1
      */
     @NotNull String getTitle();
@@ -63,6 +65,7 @@ public interface Menu {
     /**
      * Returns the amount of rows of the displayed inventory.
      *
+     * @return the amount of rows
      * @since 1
      */
     int getRowCount();
@@ -70,6 +73,7 @@ public interface Menu {
     /**
      * Returns the amount of columns of the displayed inventory.
      *
+     * @return the amount of columns
      * @since 1
      */
     int getColumnCount();

@@ -10,7 +10,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A simplified {@link Icon} with a settable click handler.
+ * Common interface extended by other interfaces, represents a simplified {@link Icon} with a settable click handler.
+ * <p>
+ * This interfaces exists to avoid having to implement {@link Icon#onClick(MenuView, Player)} via subclassing.
  *
  * @see ConfigurableIcon
  * @see StaticIcon
@@ -19,21 +21,26 @@ import org.jetbrains.annotations.Nullable;
 public interface ClickableIcon extends Icon {
 
     /**
-     * Sets the click handler for this icon (null to remove it).
+     * Sets the click handler for this icon.
      *
+     * @param clickHandler the new click handler, null to remove
      * @since 1
      */
     void setClickHandler(@Nullable ClickHandler clickHandler);
 
     /**
-     * Returns the current click handler (null if not present).
+     * Returns the current click handler.
      *
+     * @return the current click handler, null if absent
      * @since 1
      */
     @Nullable ClickHandler getClickHandler();
 
     /**
-     * Delegates the click event to the current click handler. This method should not be overridden.
+     * {@inheritDoc}
+     * <p>
+     * This default implementation delegates the click event to the current click handler. This method should not be
+     * overridden.
      *
      * @since 1
      */

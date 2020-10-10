@@ -125,10 +125,7 @@
         <module name="InvalidJavadocPosition"/>
         <module name="JavadocBlockTagLocation"/>
         <module name="JavadocContentLocation"/>
-        <module name="JavadocMethod">
-            <property name="allowMissingParamTags" value="true"/>
-            <property name="allowMissingReturnTag" value="true"/>
-        </module>
+        <module name="JavadocMethod"/>
         <!-- <module name="JavadocMissingWhitespaceAfterAsterisk"/> Only since Checkstyle v8.32 -->
         <module name="JavadocStyle"/>
         <module name="JavadocTagContinuationIndentation"/>
