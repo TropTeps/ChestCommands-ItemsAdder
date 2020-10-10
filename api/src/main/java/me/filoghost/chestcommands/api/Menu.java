@@ -39,7 +39,7 @@ public interface Menu {
      *
      * @param row    the row position
      * @param column the column position
-     * @param icon   the new icon (null to remove the current one)
+     * @param icon   the new icon, null to remove the current one
      * @since 1
      */
     void setIcon(int row, int column, @Nullable Icon icon);
@@ -49,7 +49,7 @@ public interface Menu {
      *
      * @param row    the row position
      * @param column the column position
-     * @return the icon, null if absent
+     * @return the icon at the give position, null if absent
      * @since 1
      */
     @Nullable Icon getIcon(int row, int column);
@@ -81,7 +81,7 @@ public interface Menu {
     /**
      * Displays the menu to a player, creating a rendering of this menu and its icons.
      * <p>
-     * If icons are added, removed or changed after the menu is displayed to a player, the inventory is not updated
+     * If icons are added, removed or changed after the menu is displayed to a player, the view is not updated
      * automatically and you may want to invoke {@link Menu#refreshOpenMenuViews()}.
      *
      * @param player the player to which the menu will be displayed
