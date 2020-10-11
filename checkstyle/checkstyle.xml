@@ -6,7 +6,7 @@
 <module name="Checker">
     <property name="fileExtensions" value="java, xml"/>
     <property name="charset" value="UTF-8"/>
-    <property name="severity" value="warning"/>
+    <property name="severity" value="error"/>
 
     <module name="SuppressionFilter">
         <property name="file" value="${samedir}/suppressions.xml"/>
@@ -133,6 +133,10 @@
         <module name="NonEmptyAtclauseDescription"/>
         <module name="SingleLineJavadoc"/>
         <module name="SummaryJavadoc"/>
+
+        <!-- Javadoc for API -->
+        <module name="MissingJavadocMethod"/>
+        <module name="MissingJavadocType"/>
 
         <!-- Miscellaneous -->
         <module name="ArrayTypeStyle"/>
