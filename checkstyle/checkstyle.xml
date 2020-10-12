@@ -6,7 +6,7 @@
 <module name="Checker">
     <property name="fileExtensions" value="java, xml"/>
     <property name="charset" value="UTF-8"/>
-    <property name="severity" value="error"/>
+    <property name="severity" value="warning"/>
 
     <module name="SuppressionFilter">
         <property name="file" value="${samedir}/suppressions.xml"/>
