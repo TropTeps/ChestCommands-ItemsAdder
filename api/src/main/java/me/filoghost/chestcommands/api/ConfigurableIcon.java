@@ -272,9 +272,17 @@ public interface ConfigurableIcon extends ClickableIcon {
     void setBannerPatterns(@Nullable List<Pattern> bannerPatterns);
 
     /**
-     * Sets if the placeholders should be enabled or not.
+     * Returns if placeholders are currently enabled. By default they are not enabled.
      *
-     * @param enabled the enabled
+     * @return true if placeholders are currently enabled, false otherwise
+     * @since 1
+     */
+    boolean isPlaceholdersEnabled();
+
+    /**
+     * Sets if placeholders should be enabled.
+     *
+     * @param enabled true if the placeholders should be enabled, false otherwise
      * @since 1
      */
     void setPlaceholdersEnabled(boolean enabled);

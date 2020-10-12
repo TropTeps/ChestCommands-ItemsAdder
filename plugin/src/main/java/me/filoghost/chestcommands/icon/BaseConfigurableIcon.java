@@ -220,6 +220,10 @@ public abstract class BaseConfigurableIcon implements Icon {
         cachedRendering = null;
     }
 
+    public boolean isPlaceholdersEnabled() {
+        return placeholdersEnabled;
+    }
+
     public void setPlaceholdersEnabled(boolean placeholdersEnabled) {
         this.placeholdersEnabled = placeholdersEnabled;
         cachedRendering = null;
