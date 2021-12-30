@@ -158,9 +158,9 @@ public class CommandHandler extends AnnotatedSubCommandManager {
         }
 
         if (sender.getName().equalsIgnoreCase(target.getName())) {
-            sender.sendMessage(ChatColor.GREEN + "Opening the menu " + menuName + ".");
+            sender.sendMessage(ChatColor.GREEN + "");
         } else {
-            sender.sendMessage(ChatColor.GREEN + "Opening the menu " + menuName + " to " + target.getName() + ".");
+            sender.sendMessage(ChatColor.GREEN + "");
         }
 
         menu.open(target);
